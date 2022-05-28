@@ -55,7 +55,7 @@ class Game
 
         // Functions
         void TOH(int n);
-        void run(int n, char fromA, char toC, char auxB, int value);
+        void run(int n, char fromA, char auxC, char toB, int value);
         void move(int myCase);
         void move(char from, char to);
         void pollEvents();
