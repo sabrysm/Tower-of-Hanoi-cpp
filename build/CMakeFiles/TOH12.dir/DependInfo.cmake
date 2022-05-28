@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Drakt/Documents/ToH12/src/Game.cpp" "CMakeFiles/TOH12.dir/src/Game.cpp.obj" "gcc" "CMakeFiles/TOH12.dir/src/Game.cpp.obj.d"
-  "C:/Users/Drakt/Documents/ToH12/src/TOH.cpp" "CMakeFiles/TOH12.dir/src/TOH.cpp.obj" "gcc" "CMakeFiles/TOH12.dir/src/TOH.cpp.obj.d"
   "C:/Users/Drakt/Documents/ToH12/src/main.cpp" "CMakeFiles/TOH12.dir/src/main.cpp.obj" "gcc" "CMakeFiles/TOH12.dir/src/main.cpp.obj.d"
   )
 

@@ -3,7 +3,7 @@ project(TOH12)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(TOH12 src/main.cpp src/Game.cpp headers/Game.hpp src/TOH.cpp headers/TOH.hpp)
+add_executable(TOH12 src/main.cpp src/Game.cpp headers/Game.hpp)
 
 include_directories(headers /usr/include c:/SFML/include)
 

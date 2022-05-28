@@ -8,10 +8,5 @@
   "directory": "C:/Users/Drakt/Documents/ToH12/build",
   "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/TOH12.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\TOH12.dir\\src\\Game.cpp.obj -c C:\\Users\\Drakt\\Documents\\ToH12\\src\\Game.cpp",
   "file": "C:/Users/Drakt/Documents/ToH12/src/Game.cpp"
-},
-{
-  "directory": "C:/Users/Drakt/Documents/ToH12/build",
-  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/TOH12.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\TOH12.dir\\src\\TOH.cpp.obj -c C:\\Users\\Drakt\\Documents\\ToH12\\src\\TOH.cpp",
-  "file": "C:/Users/Drakt/Documents/ToH12/src/TOH.cpp"
 }
 ]

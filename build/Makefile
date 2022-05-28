@@ -152,30 +152,6 @@ src/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TOH12.dir\build.make CMakeFiles/TOH12.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
 
-src/TOH.obj: src/TOH.cpp.obj
-.PHONY : src/TOH.obj
-
-# target to build an object file
-src/TOH.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TOH12.dir\build.make CMakeFiles/TOH12.dir/src/TOH.cpp.obj
-.PHONY : src/TOH.cpp.obj
-
-src/TOH.i: src/TOH.cpp.i
-.PHONY : src/TOH.i
-
-# target to preprocess a source file
-src/TOH.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TOH12.dir\build.make CMakeFiles/TOH12.dir/src/TOH.cpp.i
-.PHONY : src/TOH.cpp.i
-
-src/TOH.s: src/TOH.cpp.s
-.PHONY : src/TOH.s
-
-# target to generate assembly for a file
-src/TOH.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TOH12.dir\build.make CMakeFiles/TOH12.dir/src/TOH.cpp.s
-.PHONY : src/TOH.cpp.s
-
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -212,9 +188,6 @@ help:
 	@echo ... src/Game.obj
 	@echo ... src/Game.i
 	@echo ... src/Game.s
-	@echo ... src/TOH.obj
-	@echo ... src/TOH.i
-	@echo ... src/TOH.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
