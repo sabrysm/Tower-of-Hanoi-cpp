@@ -2,6 +2,8 @@
 #define GAME_HPP
 #include<iostream>
 #include<ctime>
+#include<stack>
+#include<queue>
 #include<vector>
 #include<math.h>
 #include<bits/stdc++.h>
@@ -37,7 +39,7 @@ class Game
         int points;
         float diskSpawnTimer;
         float diskSpawnTimerMax;
-        int maxDisks, numberOfDisks, totalMoves;
+        std::queue<int> stack;
 
 
         // private functions
@@ -46,6 +48,8 @@ class Game
         void initDisks();
 
     public:
+        // Public variable to be visible in main.cpp
+        int maxDisks, numberOfDisks, totalMoves;
         // Constructors & Destructors
         Game();
         ~Game();
@@ -63,7 +67,7 @@ class Game
         void updateMousePositions();
         void updateDisks();
         void update();
-        void GrayCodeAlgorithms(int current);
+        void TowerLogic(int, char, char, char);
         void calcPosition(int numberOfDisks, char A, char B, char C);
         void renderDisks();
         void render();

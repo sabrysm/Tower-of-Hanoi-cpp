@@ -8,6 +8,7 @@
     // Init Game Engine
     Game game;
     // Screen loop
+    game.TowerLogic(game.maxDisks, 'S', 'D', 'A');
     std::cout<<"Simulation has been started \n";
 
     while (game.running())

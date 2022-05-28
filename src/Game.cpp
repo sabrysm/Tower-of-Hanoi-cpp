@@ -8,12 +8,20 @@ void Game::initVariables()
     this->points = 0;
     this->diskSpawnTimerMax = 100.f;
     this->diskSpawnTimer = this->diskSpawnTimerMax;
-    this->maxDisks = 4;
+    this->maxDisks = 3;
     this->S = 'S', this->D = 'D', this->A = 'A';
+    if (this->maxDisks % 2 == 0)
+    {
+        this->S = 'S', this->D = 'D', this->A = 'A';
+    }
+    else
+    {
+        this->S = 'S', this->D = 'A', this->A = 'D';
+    }
     this->text;
     this->font.loadFromFile("assets/fonts/Roboto-Black.ttf");
     this->text.setFont(this->font);
-    this->text.setPosition(785.f, 380.f);
+    this->text.setPosition(726.f, 380.f);
     this->text.setFillColor(sf::Color::Black);
     this->text.setScale(sf::Vector2f(1.7f, 1.7f));
     this->text.setString("Click SPACE to start simulation!");
@@ -29,10 +37,10 @@ void Game::initWindow()
 void Game::initDisks()
 {
 
-    for (int i = 0; i < this->maxDisks+1; i++)
+    for (int i = 0; i < this->maxDisks; i++)
     {
     this->disk.setSize(sf::Vector2(500.f-0.1f*500*i, 40.f));
-    this->disk.setPosition(sf::Vector2(285.f+0.1f*330*i, 1311.f-40*i));
+    this->disk.setPosition(sf::Vector2(730.f-this->disk.getSize().x, 1311.f-40*i));
     this->disk.setFillColor(sf::Color::Green);
     this->disk.setOutlineColor(sf::Color::Cyan);
     this->disk.setOutlineThickness(1.f);
@@ -72,12 +80,13 @@ void Game::move(int myCase)
     {
         case 15:
         // from Source to Destination
+            this->stack.pop();
             this->text.setString("from Source to Destination");
             this->fPeg = this->fromPeg;
             this->tPeg = this->toPeg;
             this->disk = this->fPeg.back();
             this->window->clear();
-            this->disk.setPosition(sf::Vector2(1685.f+0.1f*270*this->fPeg.size(), 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(1666.f-0.5f*this->disk.getSize().x, 1311.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -89,12 +98,13 @@ void Game::move(int myCase)
             
         case 18:
         // from Source to Auxiliary
+            this->stack.pop();
             this->text.setString("from Source to Auxiliary");
             this->fPeg = this->fromPeg;
             this->tPeg = this->auxPeg;
             this->disk = this->fPeg.back();
             std::cout<<"the size of fromPeg is "<<this->fPeg.size()<<"\n";
-            this->disk.setPosition(sf::Vector2(985.f+0.1f*270*this->fPeg.size() , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(977.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
                         this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -106,11 +116,12 @@ void Game::move(int myCase)
             
         case 3:
         // from Destination to Auxiliary
+            this->stack.pop();
             this->text.setString("from Destination to Auxiliary");
             this->fPeg = this->toPeg;
             this->tPeg = this->auxPeg;
             this->disk = this->fPeg.back();
-            this->disk.setPosition(sf::Vector2(985.f+0.1f*270*this->fPeg.size() , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(977.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -122,11 +133,12 @@ void Game::move(int myCase)
             
         case -18:
         // from Auxiliary to Source
+            this->stack.pop();
             this->text.setString("from Auxiliary to Source");
             this->fPeg = this->auxPeg;
             this->tPeg = this->fromPeg;
             this->disk = this->fPeg.back();
-            this->disk.setPosition(sf::Vector2(285.f+0.1f*270*this->fPeg.size() , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(730.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -138,11 +150,12 @@ void Game::move(int myCase)
             
         case -3:
         // from Auxiliary to Destination
+            this->stack.pop();
             this->text.setString("from Auxliary to Destination");
             this->fPeg = this->auxPeg;
             this->tPeg = this->toPeg;
             this->disk = this->fPeg.back();
-            this->disk.setPosition(sf::Vector2(1685.f+0.1f*330*this->disk.getScale().x*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(1666.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -154,11 +167,12 @@ void Game::move(int myCase)
             
         case -15:
         // from Destination to Source
+            this->stack.pop();
             this->text.setString("from Destination to Source");
             this->fPeg = this->toPeg;
             this->tPeg = this->fromPeg;
             this->disk = this->fPeg.back();
-            this->disk.setPosition(sf::Vector2(285.f+0.1f*270*this->fPeg.size() , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(730.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -172,6 +186,19 @@ void Game::move(int myCase)
             std::cout<<"Error occured";
             break;
     }
+}
+void Game::TowerLogic(int NumberOfDisks, char S, char D, char A)
+{
+    if (NumberOfDisks == 1)
+    {
+        std::cout<<"Moved from "<<" "<<S<<" to "<<D<<"\n";
+        this->stack.push(S-D);
+        return;
+    }
+    this->TowerLogic(NumberOfDisks-1, S, A, D);
+    std::cout<<"Moved from "<<" "<<S<<" to "<<D<<"\n";
+    this->stack.push(S-D);
+    this->TowerLogic(NumberOfDisks-1, A, D, S);
 }
 
 void Game::run(int n, char fromA, char auxC, char toB, int value)
@@ -245,8 +272,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Space)
             {
-            this->move(this->S -this->D);
-            // Calculate first where to go next.
+            this->move(this->stack.front());
             
             } 
             this->diskSpawnTimer += 1.f;
