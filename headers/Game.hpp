@@ -31,7 +31,7 @@ class Game
         sf::RenderWindow* window;
         sf::VideoMode videoMode;
         sf::Texture background;
-        sf::Text logs, guideText;
+        sf::Text logs, guideText, collegeName, counter;
         sf::Font font;
         sf::Event ev;
 

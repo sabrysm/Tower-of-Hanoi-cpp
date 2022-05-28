@@ -5,10 +5,18 @@ void Game::initVariables()
 {
     this->window = nullptr;
     //Game logic
-    this->points = 0;
     this->diskSpawnTimerMax = 100.f;
     this->diskSpawnTimer = this->diskSpawnTimerMax;
     this->font.loadFromFile("assets/fonts/Roboto-Black.ttf");
+    this->collegeName.setFont(this->font);
+    this->collegeName.setPosition(2040.f, 30.f);
+    this->collegeName.setScale(sf::Vector2f(1.f, 1.f));
+    this->collegeName.setFillColor(sf::Color::Black);
+    this->collegeName.setString("Faculty of Engineering\nAlexandria Unversity");
+    this->counter.setFont(this->font);
+    this->counter.setPosition(2050.f, 60.f);
+    this->counter.setScale(sf::Vector2f(1.f, 1.f));
+    this->counter.setFillColor(sf::Color::Black);
     this->logs.setFont(this->font);
     this->logs.setPosition(45.f, 60.f);
     this->logs.setFillColor(sf::Color::Black);
@@ -368,6 +376,7 @@ void Game::render() // Playing the Pixels on the window
     this->window->draw(static_cast<sf::Sprite>(this->background));
     this->window->draw(this->logs);
     this->window->draw(this->guideText);
+    this->window->draw(this->collegeName);
     for (auto& t : this->fromPeg)
     {
         this->window->draw(t);
