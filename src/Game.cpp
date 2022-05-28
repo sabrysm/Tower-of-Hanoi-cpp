@@ -40,7 +40,7 @@ void Game::initDisks()
     for (int i = 0; i < this->maxDisks; i++)
     {
     this->disk.setSize(sf::Vector2(500.f-0.1f*500*i, 40.f));
-    this->disk.setPosition(sf::Vector2(730.f-this->disk.getSize().x, 1311.f-40*i));
+    this->disk.setPosition(sf::Vector2(557.f-0.5f*this->disk.getSize().x, 1307.f-40*i));
     this->disk.setFillColor(sf::Color::Green);
     this->disk.setOutlineColor(sf::Color::Cyan);
     this->disk.setOutlineThickness(1.f);
@@ -86,7 +86,7 @@ void Game::move(int myCase)
             this->tPeg = this->toPeg;
             this->disk = this->fPeg.back();
             this->window->clear();
-            this->disk.setPosition(sf::Vector2(1666.f-0.5f*this->disk.getSize().x, 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(1957.f-0.5f*this->disk.getSize().x, 1307.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -104,7 +104,7 @@ void Game::move(int myCase)
             this->tPeg = this->auxPeg;
             this->disk = this->fPeg.back();
             std::cout<<"the size of fromPeg is "<<this->fPeg.size()<<"\n";
-            this->disk.setPosition(sf::Vector2(977.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(1257.f-0.5f*this->disk.getSize().x , 1307.f-40*this->tPeg.size()));
                         this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -121,7 +121,7 @@ void Game::move(int myCase)
             this->fPeg = this->toPeg;
             this->tPeg = this->auxPeg;
             this->disk = this->fPeg.back();
-            this->disk.setPosition(sf::Vector2(977.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(1257.f-0.5f*this->disk.getSize().x , 1307.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -138,7 +138,7 @@ void Game::move(int myCase)
             this->fPeg = this->auxPeg;
             this->tPeg = this->fromPeg;
             this->disk = this->fPeg.back();
-            this->disk.setPosition(sf::Vector2(730.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(557.f-0.5f*this->disk.getSize().x , 1307.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -155,7 +155,7 @@ void Game::move(int myCase)
             this->fPeg = this->auxPeg;
             this->tPeg = this->toPeg;
             this->disk = this->fPeg.back();
-            this->disk.setPosition(sf::Vector2(1666.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(1957.f-0.5f*this->disk.getSize().x , 1307.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
@@ -172,7 +172,7 @@ void Game::move(int myCase)
             this->fPeg = this->toPeg;
             this->tPeg = this->fromPeg;
             this->disk = this->fPeg.back();
-            this->disk.setPosition(sf::Vector2(730.f-0.5f*this->disk.getSize().x , 1311.f-40*this->tPeg.size()));
+            this->disk.setPosition(sf::Vector2(557.f-0.5f*this->disk.getSize().x , 1307.f-40*this->tPeg.size()));
             this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
