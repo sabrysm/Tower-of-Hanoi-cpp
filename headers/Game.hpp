@@ -30,7 +30,7 @@ class Game
         //Game objects
         std::vector<sf::RectangleShape> fromPeg, toPeg, auxPeg, fPeg, tPeg;
         sf::RectangleShape disk;
-        char A, B, C, holder;
+        char S, D, A, holder;
 
 
         //Game logic

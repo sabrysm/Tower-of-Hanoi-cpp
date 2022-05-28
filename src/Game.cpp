@@ -9,7 +9,7 @@ void Game::initVariables()
     this->diskSpawnTimerMax = 100.f;
     this->diskSpawnTimer = this->diskSpawnTimerMax;
     this->maxDisks = 4;
-    this->A = 'S', this->B = 'D', this->C = 'A';
+    this->S = 'S', this->D = 'D', this->A = 'A';
     this->text;
     this->font.loadFromFile("assets/fonts/Roboto-Black.ttf");
     this->text.setFont(this->font);
@@ -187,38 +187,39 @@ void Game::run(int n, char fromA, char auxC, char toB, int value)
         case 15: // from Source to Destination
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
             this->numberOfDisks--;
+            this->pollEvents();
             this->move(value);
-            this->A = fromA, this->B = auxC, this->C = toB; // Here where we decide where to go
+            this->S = fromA, this->D = auxC, this->A = toB; // Here where we decide where to go
             break;
         case 18: // from Source to Auxiliary
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->move(this->A - this->C);
+            this->move(this->S - this->A);
             this->numberOfDisks--;
-            this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
+            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
             break;
         case -15: // from Destination to Auxiliary
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
             this->numberOfDisks--;
             this->move(value);
-            this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
+            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
             break;
         case -18: // from Auxiliary to Source
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
             this->numberOfDisks--;
             this->move(value);
-            this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
+            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
             break;
         case 3: // from Destination to Auxiliary
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
             this->numberOfDisks--;
             this->move(value);
-            this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
+            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
             break;
         case -3: // from Auxiliary to Destination
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
             this->numberOfDisks--;
             this->move(value);
-            this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
+            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
             break;
         default:
             break;
@@ -244,7 +245,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Space)
             {
-            this->run(this->maxDisks - 1, this->A, this->C, this->B, this->A -this->B);
+            this->move(this->S -this->D);
             // Calculate first where to go next.
             
             } 
