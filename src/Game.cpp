@@ -184,16 +184,37 @@ void Game::run(int n, char fromA, char toC, char auxB, int value)
     }
     switch (value)
     {
-        case 15:
+        case 15: // from Source to Destination
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toC<<" \n";
             this->move(this->A - this->B);
             this->A = 'S', this->B = 'A', this->C = 'D'; // Here where we decide where to go
             break;
-        case 18:
+        case 18: // from Source to Auxiliary
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toC<<" \n";
             this->move(this->A - this->B);
             this->A = 'S', this->B = 'A', this->C = 'D';
             break;
+        case -15: // from Destination to Auxiliary
+            std::cout<<"Move from rod "<<fromA<<" to rod "<<toC<<" \n";
+            this->move(this->A - this->B);
+            this->A = 'S', this->B = 'A', this->C = 'D'; // Here where we decide where to go
+            break;
+        case -18: // from Auxiliary to Source
+            std::cout<<"Move from rod "<<fromA<<" to rod "<<toC<<" \n";
+            this->move(this->A - this->B);
+            this->A = 'S', this->B = 'A', this->C = 'D';
+            break;
+        case 3: // from Destination to Auxiliary
+            std::cout<<"Move from rod "<<fromA<<" to rod "<<toC<<" \n";
+            this->move(this->A - this->B);
+            this->A = 'S', this->B = 'A', this->C = 'D';
+            break;
+        case -3: // from Auxiliary to Destination
+            std::cout<<"Move from rod "<<fromA<<" to rod "<<toC<<" \n";
+            this->move(this->A - this->B);
+            this->A = 'S', this->B = 'A', this->C = 'D';
+            break;
+
         default:
             break;
     }

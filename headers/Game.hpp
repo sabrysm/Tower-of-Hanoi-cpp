@@ -63,6 +63,7 @@ class Game
         void updateMousePositions();
         void updateDisks();
         void update();
+        void GrayCodeAlgorithms(int current);
         void calcPosition(int numberOfDisks, char A, char B, char C);
         void renderDisks();
         void render();
