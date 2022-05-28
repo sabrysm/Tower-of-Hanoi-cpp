@@ -8,23 +8,17 @@ void Game::initVariables()
     this->points = 0;
     this->diskSpawnTimerMax = 100.f;
     this->diskSpawnTimer = this->diskSpawnTimerMax;
-    this->maxDisks = 3;
-    this->S = 'S', this->D = 'D', this->A = 'A';
-    if (this->maxDisks % 2 == 0)
-    {
-        this->S = 'S', this->D = 'D', this->A = 'A';
-    }
-    else
-    {
-        this->S = 'S', this->D = 'A', this->A = 'D';
-    }
-    this->text;
     this->font.loadFromFile("assets/fonts/Roboto-Black.ttf");
-    this->text.setFont(this->font);
-    this->text.setPosition(726.f, 380.f);
-    this->text.setFillColor(sf::Color::Black);
-    this->text.setScale(sf::Vector2f(1.7f, 1.7f));
-    this->text.setString("Click SPACE to start simulation!");
+    this->logs.setFont(this->font);
+    this->logs.setPosition(45.f, 60.f);
+    this->logs.setFillColor(sf::Color::Black);
+    this->logs.setScale(sf::Vector2f(1.2f, 1.2f));
+    this->guideText.setFont(this->font);
+    this->guideText.setPosition(745.f, 345.f);
+    this->guideText.setScale(sf::Vector2f(2.f, 2.f));
+    this->guideText.setFillColor(sf::Color::Black);
+    this->guideText.setString("Choose any number of Disks!\n\t\t\t\tbetween 3 to 9");
+    this->queue = this->emptyQueue; // Empty the queue to start counting properly.
 }
 void Game::initWindow()
 {
@@ -36,7 +30,16 @@ void Game::initWindow()
 }
 void Game::initDisks()
 {
-
+    this->S = 'S', this->D = 'D', this->A = 'A';
+    if (this->maxDisks % 2 == 0)
+    {
+        this->S = 'S', this->D = 'D', this->A = 'A';
+    }
+    else
+    {
+        this->S = 'S', this->D = 'A', this->A = 'D';
+    }
+    this->queue = this->emptyQueue; // Empty the queue to start counting properly.
     for (int i = 0; i < this->maxDisks; i++)
     {
     this->disk.setSize(sf::Vector2(500.f-0.1f*500*i, 40.f));
@@ -56,7 +59,6 @@ Game::Game()
 {
     this->initVariables();
     this->initWindow();
-    this->initDisks();
 }
 
 Game::~Game()
@@ -75,13 +77,12 @@ const bool Game::running() const
 
 void Game::move(int myCase)
 {
-    std::cout<<"Entered Game::move() :D\n";
     switch (myCase)
     {
         case 15:
         // from Source to Destination
-            this->stack.pop();
-            this->text.setString("from Source to Destination");
+            this->queue.pop();
+            this->logs.setString("from Source to Destination");
             this->fPeg = this->fromPeg;
             this->tPeg = this->toPeg;
             this->disk = this->fPeg.back();
@@ -98,14 +99,13 @@ void Game::move(int myCase)
             
         case 18:
         // from Source to Auxiliary
-            this->stack.pop();
-            this->text.setString("from Source to Auxiliary");
+            this->queue.pop();
+            this->logs.setString("from Source to Auxiliary");
             this->fPeg = this->fromPeg;
             this->tPeg = this->auxPeg;
             this->disk = this->fPeg.back();
-            std::cout<<"the size of fromPeg is "<<this->fPeg.size()<<"\n";
             this->disk.setPosition(sf::Vector2(1257.f-0.5f*this->disk.getSize().x , 1307.f-40*this->tPeg.size()));
-                        this->window->draw(this->disk);
+            this->window->draw(this->disk);
             this->tPeg.push_back(this->disk);
             this->fPeg.pop_back();
             this->fromPeg = this->fPeg;
@@ -116,8 +116,8 @@ void Game::move(int myCase)
             
         case 3:
         // from Destination to Auxiliary
-            this->stack.pop();
-            this->text.setString("from Destination to Auxiliary");
+            this->queue.pop();
+            this->logs.setString("from Destination to Auxiliary");
             this->fPeg = this->toPeg;
             this->tPeg = this->auxPeg;
             this->disk = this->fPeg.back();
@@ -133,8 +133,8 @@ void Game::move(int myCase)
             
         case -18:
         // from Auxiliary to Source
-            this->stack.pop();
-            this->text.setString("from Auxiliary to Source");
+            this->queue.pop();
+            this->logs.setString("from Auxiliary to Source");
             this->fPeg = this->auxPeg;
             this->tPeg = this->fromPeg;
             this->disk = this->fPeg.back();
@@ -150,8 +150,8 @@ void Game::move(int myCase)
             
         case -3:
         // from Auxiliary to Destination
-            this->stack.pop();
-            this->text.setString("from Auxliary to Destination");
+            this->queue.pop();
+            this->logs.setString("from Auxliary to Destination");
             this->fPeg = this->auxPeg;
             this->tPeg = this->toPeg;
             this->disk = this->fPeg.back();
@@ -167,8 +167,8 @@ void Game::move(int myCase)
             
         case -15:
         // from Destination to Source
-            this->stack.pop();
-            this->text.setString("from Destination to Source");
+            this->queue.pop();
+            this->logs.setString("from Destination to Source");
             this->fPeg = this->toPeg;
             this->tPeg = this->fromPeg;
             this->disk = this->fPeg.back();
@@ -192,12 +192,12 @@ void Game::TowerLogic(int NumberOfDisks, char S, char D, char A)
     if (NumberOfDisks == 1)
     {
         std::cout<<"Moved from "<<" "<<S<<" to "<<D<<"\n";
-        this->stack.push(S-D);
+        this->queue.push(S-D);
         return;
     }
     this->TowerLogic(NumberOfDisks-1, S, A, D);
     std::cout<<"Moved from "<<" "<<S<<" to "<<D<<"\n";
-    this->stack.push(S-D);
+    this->queue.push(S-D);
     this->TowerLogic(NumberOfDisks-1, A, D, S);
 }
 
@@ -266,15 +266,72 @@ void Game::pollEvents()
             this->window->close();
             break;
         case sf::Event::KeyPressed:
-            if (this->ev.key.code == sf::Keyboard::Escape)
+        
+            if (this->ev.key.code == sf::Keyboard::Num5)
+            {
+                this->maxDisks = 5;
+                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
+                this->initDisks();
+                this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
+                this->guideText.setString("Now click SPACE to start simulation.");
+            }
+            else if (this->ev.key.code == sf::Keyboard::Num9)
+            {
+                this->maxDisks = 9;
+                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
+                this->initDisks();
+                this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
+                this->guideText.setString("Now click SPACE to start simulation.");
+            }
+            else if (this->ev.key.code == sf::Keyboard::Num8)
+            {
+                this->maxDisks = 8;
+                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
+                this->initDisks();
+                this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
+                this->guideText.setString("Now click SPACE to start simulation.");
+            }
+            else if (this->ev.key.code == sf::Keyboard::Num7)
+            {
+                this->maxDisks = 7;
+                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
+                this->initDisks();
+                this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
+                this->guideText.setString("Now click SPACE to start simulation.");
+            }
+            else if (this->ev.key.code == sf::Keyboard::Num6)
+            {
+                this->maxDisks = 6;
+                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
+                this->initDisks();
+                this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
+                this->guideText.setString("Now click SPACE to start simulation.");
+            }
+            else if (this->ev.key.code == sf::Keyboard::Num4)
+            {
+                this->maxDisks = 4;
+                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
+                this->initDisks();
+                this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
+                this->guideText.setString("Now click SPACE to start simulation.");
+            }
+            else if (this->ev.key.code == sf::Keyboard::Num3)
+            {
+                this->maxDisks = 3;
+                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
+                this->initDisks();
+                this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
+                this->guideText.setString("Now click SPACE to start simulation.");
+            }
+            else if (this->ev.key.code == sf::Keyboard::Escape)
             {
             this->window->close();
             }
             else if (this->ev.key.code == sf::Keyboard::Space)
             {
-            this->move(this->stack.front());
-            
-            } 
+                this->move(this->queue.front());
+                this->guideText.setString("");
+            }
             this->diskSpawnTimer += 1.f;
             this->update();
             break;
@@ -284,62 +341,9 @@ void Game::pollEvents()
 
 // UPDATE
 
-void Game::updateMousePositions()
-{
-    this->mousePosWindow = sf::Mouse::getPosition(*this->window);
-}
-void Game::updateDiskPositions()
-{
-    this->window->draw(this->disk);
-}
-void Game::updateDisks()
-{
-    /**
-     * @return void
-     * 
-     * Update the disk spawn timer and spawn the disks
-     * when the total amount of enemies is smaller than the maximum number.
-     * -Moves the Disks.
-     * -Remove disks from the edige of the window.
-     */
-
-
-    // Updating timer for Disk spawn
-    if (this->fromPeg.size() < this->toPeg.size())
-    {
-
-        if (this->diskSpawnTimer >= this->diskSpawnTimerMax)
-        {
-            // spawn the disk and reset timer
-            this->diskSpawnTimer += 1.f;
-            this->update();
-        }
-        else
-        {
-            // towersOfHanoi tower;
-            // tower.run(this->fromPeg.size(), 'A', 'C', 'B');
-            this->diskSpawnTimer = 0.f;
-            this->updateDisks();
-        }
-
-        // Move the disks
-
-        // for (auto &e :*this->fromPeg)
-        // {
-        //     e.move(0.f, 7.f);
-        // }
-
-    }
-    else{
-        std::cout<<"Error at line 260";
-    }
-}
-
 void Game::update()
 {
     this->pollEvents();
-    this->updateMousePositions();
-    this->updateDiskPositions();
 
 }
 void Game::renderDisks()
@@ -362,7 +366,8 @@ void Game::render() // Playing the Pixels on the window
     // Draw game object
     
     this->window->draw(static_cast<sf::Sprite>(this->background));
-    this->window->draw(this->text);
+    this->window->draw(this->logs);
+    this->window->draw(this->guideText);
     for (auto& t : this->fromPeg)
     {
         this->window->draw(t);

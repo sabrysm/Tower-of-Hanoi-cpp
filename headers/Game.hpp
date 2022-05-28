@@ -17,19 +17,34 @@ using std::string;
 class Game
 {
     private:
+    /**
+     * Set screen Resolution and basic tools necessary for the Game.
+     * 
+     * -window : The window which will appear when the Game starts.
+     * -videoMode : Defines a video mode (width, height, bpp).
+     * -background : The background of the window.
+     * -logs : Logs that appear in the left top corner.
+     * -font : for loading and manipulating character fonts.
+     * -ev : Defines a system event and its parameter.
+     * 
+     */
         sf::RenderWindow* window;
         sf::VideoMode videoMode;
         sf::Texture background;
-        sf::Text text;
+        sf::Text logs, guideText;
         sf::Font font;
         sf::Event ev;
 
-
-        // Mouse Position
-        sf::Vector2i mousePosWindow;
-
-        
         //Game objects
+
+        /**
+         * -fromPeg, toPeg, auxPeg : As the name suggests they are the main Pegs.
+         * -fPeg, tPeg : Temporary pegs to be used within the function [ void move(int myCase) ].
+         * -disk : Temporary disk of type vector which takes a Vector as a Parameteer.
+         * -S, D, A : Characters to help the function know where to go; A for AUX, S for Source and D for Destination.
+         * -holder : Character to help in swaping between S, D, A.
+         * 
+         */
         std::vector<sf::RectangleShape> fromPeg, toPeg, auxPeg, fPeg, tPeg;
         sf::RectangleShape disk;
         char S, D, A, holder;
@@ -39,7 +54,7 @@ class Game
         int points;
         float diskSpawnTimer;
         float diskSpawnTimerMax;
-        std::queue<int> stack;
+        std::queue<int> queue, emptyQueue;
 
 
         // private functions
@@ -58,13 +73,10 @@ class Game
         const bool running() const;
 
         // Functions
-        void TOH(int n);
         void run(int n, char fromA, char auxC, char toB, int value);
         void move(int myCase);
-        void move(char from, char to);
         void pollEvents();
         void updateDiskPositions();
-        void updateMousePositions();
         void updateDisks();
         void update();
         void TowerLogic(int, char, char, char);
