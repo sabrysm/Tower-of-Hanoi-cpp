@@ -186,9 +186,9 @@ void Game::run(int n, char fromA, char auxC, char toB, int value)
     {
         case 15: // from Source to Destination
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->move(value);
             this->numberOfDisks--;
-            this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
+            this->move(value);
+            this->A = fromA, this->B = auxC, this->C = toB; // Here where we decide where to go
             break;
         case 18: // from Source to Auxiliary
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
@@ -198,26 +198,26 @@ void Game::run(int n, char fromA, char auxC, char toB, int value)
             break;
         case -15: // from Destination to Auxiliary
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->move(value);
             this->numberOfDisks--;
+            this->move(value);
             this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
             break;
         case -18: // from Auxiliary to Source
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->move(value);
             this->numberOfDisks--;
+            this->move(value);
             this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
             break;
         case 3: // from Destination to Auxiliary
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->move(value);
             this->numberOfDisks--;
+            this->move(value);
             this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
             break;
         case -3: // from Auxiliary to Destination
             std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->move(value);
             this->numberOfDisks--;
+            this->move(value);
             this->A = fromA, this->B = toB, this->C = auxC; // Here where we decide where to go
             break;
         default:
