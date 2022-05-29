@@ -1,5 +1,6 @@
 CMakeFiles/TOH12.dir/src/Game.cpp.obj: \
  C:\Users\Drakt\Documents\ToH12\src\Game.cpp \
+ C:/Users/Drakt/Documents/ToH12/headers/Game.hpp \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/iostream \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
@@ -129,7 +130,6 @@ CMakeFiles/TOH12.dir/src/Game.cpp.obj: \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/ostream.tcc \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/istream \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/istream.tcc \
- C:/Users/Drakt/Documents/ToH12/headers/Game.hpp \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/ctime \
  C:/mingw64/x86_64-w64-mingw32/include/time.h \
  C:/mingw64/x86_64-w64-mingw32/include/_timeval.h \

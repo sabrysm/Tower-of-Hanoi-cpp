@@ -1,18 +1,16 @@
-#include<iostream>
 #include "Game.hpp"
 
 void Game::initVariables()
 {
+    // Game logic 
+
     this->window = nullptr;
-    //Game logic
-    this->diskSpawnTimerMax = 100.f;
-    this->diskSpawnTimer = this->diskSpawnTimerMax;
     this->font.loadFromFile("assets/fonts/Roboto-Black.ttf");
     this->collegeName.setFont(this->font);
     this->collegeName.setPosition(2040.f, 30.f);
     this->collegeName.setScale(sf::Vector2f(1.f, 1.f));
     this->collegeName.setFillColor(sf::Color::Black);
-    this->collegeName.setString("Faculty of Engineering\nAlexandria Unversity");
+    this->collegeName.setString("Faculty of Engineering\nAlexandria University");
     this->counter.setFont(this->font);
     this->counter.setPosition(2050.f, 60.f);
     this->counter.setScale(sf::Vector2f(1.f, 1.f));
@@ -25,7 +23,7 @@ void Game::initVariables()
     this->guideText.setPosition(745.f, 345.f);
     this->guideText.setScale(sf::Vector2f(2.f, 2.f));
     this->guideText.setFillColor(sf::Color::Black);
-    this->guideText.setString("Choose any number of Disks!\n\t\t\t\tbetween 3 to 9");
+    this->guideText.setString("Choose any number of Disks!\n\t\t\t\tbetween 1 to 9");
     this->queue = this->emptyQueue; // Empty the queue to start counting properly.
 }
 void Game::initWindow()
@@ -191,7 +189,7 @@ void Game::move(int myCase)
             break;
             
         default:
-            std::cout<<"Error occured";
+            std::cout<<"Error occured\n";
             break;
     }
 }
@@ -261,6 +259,13 @@ void Game::run(int n, char fromA, char auxC, char toB, int value)
     }
 }
 
+/**
+ * POLL EVENTS
+ * -----------
+ * Called when any interaction with keyboard is done.
+ * 
+ * 
+ */
 
 
 void Game::pollEvents()
@@ -326,6 +331,22 @@ void Game::pollEvents()
             else if (this->ev.key.code == sf::Keyboard::Num3)
             {
                 this->maxDisks = 3;
+                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
+                this->initDisks();
+                this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
+                this->guideText.setString("Now click SPACE to start simulation.");
+            }
+            else if (this->ev.key.code == sf::Keyboard::Num2)
+            {
+                this->maxDisks = 2;
+                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
+                this->initDisks();
+                this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
+                this->guideText.setString("Now click SPACE to start simulation.");
+            }
+            else if (this->ev.key.code == sf::Keyboard::Num1)
+            {
+                this->maxDisks = 1;
                 this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
