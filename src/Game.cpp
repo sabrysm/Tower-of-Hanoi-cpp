@@ -193,6 +193,20 @@ void Game::move(int myCase)
             break;
     }
 }
+
+/**
+ * @return void 
+ * 
+ * @param NumberOfDisks 
+ * @param S 
+ * @param D 
+ * @param A 
+ * 
+ * Runs a recursion where it moves N-1 disks every time and the moved disk is pushed into a queue,
+ * this step is Important because it allows for First In First Out (FIFO) 
+ * we will use the Queue in `void move(int myCase)` function where queue.top() is stored in the param `myCase`
+ * then we can compare cases and decide where to move exactly.
+ */
 void Game::TowerLogic(int NumberOfDisks, char S, char D, char A)
 {
     if (NumberOfDisks == 1)
@@ -207,57 +221,6 @@ void Game::TowerLogic(int NumberOfDisks, char S, char D, char A)
     this->TowerLogic(NumberOfDisks-1, A, D, S);
 }
 
-void Game::run(int n, char fromA, char auxC, char toB, int value)
-{
-    if (n==1)
-    {
-        this->move(value);
-        std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-        return;
-    }
-    switch (value)
-    {
-        case 15: // from Source to Destination
-            std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->numberOfDisks--;
-            this->pollEvents();
-            this->move(value);
-            this->S = fromA, this->D = auxC, this->A = toB; // Here where we decide where to go
-            break;
-        case 18: // from Source to Auxiliary
-            std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->move(this->S - this->A);
-            this->numberOfDisks--;
-            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
-            break;
-        case -15: // from Destination to Auxiliary
-            std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->numberOfDisks--;
-            this->move(value);
-            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
-            break;
-        case -18: // from Auxiliary to Source
-            std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->numberOfDisks--;
-            this->move(value);
-            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
-            break;
-        case 3: // from Destination to Auxiliary
-            std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->numberOfDisks--;
-            this->move(value);
-            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
-            break;
-        case -3: // from Auxiliary to Destination
-            std::cout<<"Move from rod "<<fromA<<" to rod "<<toB<<" \n";
-            this->numberOfDisks--;
-            this->move(value);
-            this->S = fromA, this->D = toB, this->A = auxC; // Here where we decide where to go
-            break;
-        default:
-            break;
-    }
-}
 
 /**
  * POLL EVENTS
@@ -378,7 +341,19 @@ void Game::update()
 void Game::renderDisks()
 {
     // Render all Disks
-    this->window->draw(this->disk);
+
+    for (auto& t : this->fromPeg)
+    {
+        this->window->draw(t);
+    }
+    for (auto& e : this->toPeg)
+    {
+        this->window->draw(e);
+    }
+    for (auto& m : this->auxPeg)
+    {
+        this->window->draw(m);
+    }
 }
 void Game::render() // Playing the Pixels on the window
 {
@@ -398,18 +373,6 @@ void Game::render() // Playing the Pixels on the window
     this->window->draw(this->logs);
     this->window->draw(this->guideText);
     this->window->draw(this->collegeName);
-    for (auto& t : this->fromPeg)
-    {
-        this->window->draw(t);
-    }
-    for (auto& e : this->toPeg)
-    {
-        this->window->draw(e);
-    }
-    for (auto& m : this->auxPeg)
-    {
-        this->window->draw(m);
-    }
     this->renderDisks();
     this->window->display();
     
