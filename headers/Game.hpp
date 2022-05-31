@@ -31,7 +31,7 @@ class Game
         sf::RenderWindow* window;
         sf::VideoMode videoMode;
         sf::Texture background;
-        sf::Text logs, guideText, collegeName, counter;
+        sf::Text logs, guideText, collegeName;
         sf::Font font;
         sf::Event ev;
 
@@ -73,14 +73,10 @@ class Game
         const bool running() const;
 
         // Functions
-        void run(int n, char fromA, char auxC, char toB, int value);
         void move(int myCase);
         void pollEvents();
-        void updateDiskPositions();
-        void updateDisks();
         void update();
         void TowerLogic(int, char, char, char);
-        void calcPosition(int numberOfDisks, char A, char B, char C);
         void renderDisks();
         void render();
 };
