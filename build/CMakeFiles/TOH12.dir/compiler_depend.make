@@ -136,7 +136,7 @@ CMakeFiles/TOH12.dir/src/Game.cpp.obj: ../src/Game.cpp \
   C:/mingw64/x86_64-w64-mingw32/include/time.h \
   C:/mingw64/x86_64-w64-mingw32/include/_timeval.h \
   C:/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/stack \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/queue \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/deque \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_construct.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_uninitialized.h \
@@ -144,15 +144,13 @@ CMakeFiles/TOH12.dir/src/Game.cpp.obj: ../src/Game.cpp \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_relops.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_deque.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/deque.tcc \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_stack.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/uses_allocator.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/queue \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/vector \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_vector.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_bvector.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/vector.tcc \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_heap.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_queue.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/uses_allocator.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/math.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/cmath \
   C:/mingw64/x86_64-w64-mingw32/include/math.h \
@@ -267,6 +265,8 @@ CMakeFiles/TOH12.dir/src/Game.cpp.obj: ../src/Game.cpp \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/set \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_set.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_multiset.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/stack \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_stack.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/valarray \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/valarray_array.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/valarray_array.tcc \
@@ -558,7 +558,7 @@ CMakeFiles/TOH12.dir/src/main.cpp.obj: ../src/main.cpp \
   C:/mingw64/x86_64-w64-mingw32/include/time.h \
   C:/mingw64/x86_64-w64-mingw32/include/_timeval.h \
   C:/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/stack \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/queue \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/deque \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_construct.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_uninitialized.h \
@@ -566,15 +566,13 @@ CMakeFiles/TOH12.dir/src/main.cpp.obj: ../src/main.cpp \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_relops.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_deque.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/deque.tcc \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_stack.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/uses_allocator.h \
-  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/queue \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/vector \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_vector.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_bvector.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/vector.tcc \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_heap.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_queue.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/uses_allocator.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/math.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/cmath \
   C:/mingw64/x86_64-w64-mingw32/include/math.h \
@@ -689,6 +687,8 @@ CMakeFiles/TOH12.dir/src/main.cpp.obj: ../src/main.cpp \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/set \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_set.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_multiset.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/stack \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_stack.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/valarray \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/valarray_array.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/valarray_array.tcc \
@@ -1264,8 +1264,6 @@ C:/mingw64/x86_64-w64-mingw32/include/_timeval.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/pthread_time.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/stack:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/deque:
@@ -1278,19 +1276,19 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_deque.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/deque.tcc:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/memory:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_heap.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_stack.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/uses_allocator.h:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/indirect_array.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/vector:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_bvector.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_stack.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/memory:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_heap.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/uses_allocator.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/math.h:
 
@@ -1491,6 +1489,8 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_numeric.h:
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/ratio:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_set.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/stack:
 
 C:/SFML/include/SFML/Network/SocketHandle.hpp:
 

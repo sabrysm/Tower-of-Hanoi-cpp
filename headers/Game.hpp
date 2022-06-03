@@ -2,7 +2,6 @@
 #define GAME_HPP
 #include<iostream>
 #include<ctime>
-#include<stack>
 #include<queue>
 #include<vector>
 #include<math.h>
@@ -48,6 +47,7 @@ class Game
         std::vector<sf::RectangleShape> fromPeg, toPeg, auxPeg, fPeg, tPeg;
         sf::RectangleShape disk;
         char S, D, A, holder;
+        
 
 
         //Game logic
@@ -66,8 +66,8 @@ class Game
         // Public variable to be visible in main.cpp
         int maxDisks, numberOfDisks, totalMoves;
         // Constructors & Destructors
-        Game();
-        ~Game();
+        Game(); // First thing to run in the class
+        ~Game(); //Destructor to run last thing 
 
         // Accessors
         const bool running() const;

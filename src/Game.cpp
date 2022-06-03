@@ -3,6 +3,7 @@
 void Game::initVariables()
 {
     // Game logic 
+    // Function responsible for text on screen
 
     this->window = nullptr;
     this->font.loadFromFile("assets/fonts/Roboto-Black.ttf");
@@ -22,12 +23,13 @@ void Game::initVariables()
     this->guideText.setString("Choose any number of Disks!\n\t\t\t\tbetween 1 to 9");
     this->queue = this->emptyQueue; // Empty the queue to start counting properly.
 }
+
 void Game::initWindow()
 {
     this->videoMode.width = 2400;
     this->videoMode.height = 1500;
     this->window = new sf::RenderWindow(this->videoMode, "Tower Of Hanoi", sf::Style::Titlebar | sf::Style::Close);
-    this->window->setFramerateLimit(60);
+    this->window->setFramerateLimit(140);
     this->background.loadFromFile("assets/background/TOHbg6.png");
 }
 void Game::initDisks()
@@ -49,13 +51,12 @@ void Game::initDisks()
     this->disk.setFillColor(sf::Color::Cyan);
     this->disk.setOutlineColor(sf::Color::Blue);
     this->disk.setOutlineThickness(2.f);
-    this->fromPeg.push_back(this->disk);
-    std::cout<<this->disk.getSize().x<<"\n";
+    this->fromPeg.push_back(this->disk); // Push to stack
     }
-    std::cout<<this->fromPeg.size();
 }
 
 // Constructors
+
 
 Game::Game()
 {
@@ -83,9 +84,9 @@ void Game::move(int myCase)
     {
         case 15:
         // from Source to Destination
-            this->queue.pop();
+            this->queue.pop(); // Remove the first element in the queue
             this->logs.setString("from Source to Destination");
-            this->fPeg = this->fromPeg;
+            this->fPeg = this->fromPeg; 
             this->tPeg = this->toPeg;
             this->disk = this->fPeg.back();
             this->window->clear();
@@ -186,6 +187,10 @@ void Game::move(int myCase)
             
         default:
             std::cout<<"Error occured\n";
+            this->guideText.setString("Simulation Finished!");
+            this->guideText.setScale(sf::Vector2f(3.f, 3.f));
+            this->update();
+            this->render();
             break;
     }
 }
@@ -221,7 +226,7 @@ void Game::TowerLogic(int NumberOfDisks, char S, char D, char A)
 /**
  * POLL EVENTS
  * -----------
- * Called when any interaction with keyboard is done.
+ * Called when any interaction with keyboard is done, like clicking SPACE / ESCAPE etc.
  * 
  * 
  */
@@ -308,8 +313,8 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Space)
             {
-                this->move(this->queue.front());
                 this->guideText.setString("");
+                this->move(this->queue.front());
             }
             this->update();
             break;
@@ -322,7 +327,6 @@ void Game::pollEvents()
 void Game::update()
 {
     this->pollEvents();
-
 }
 void Game::renderDisks()
 {
