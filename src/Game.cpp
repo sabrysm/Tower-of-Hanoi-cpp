@@ -242,7 +242,6 @@ void Game::pollEvents()
             if (this->ev.key.code == sf::Keyboard::Num5)
             {
                 this->maxDisks = 5;
-                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
                 this->guideText.setString("Now click SPACE to start simulation.");
@@ -250,7 +249,6 @@ void Game::pollEvents()
             else if (this->ev.key.code == sf::Keyboard::Num9)
             {
                 this->maxDisks = 9;
-                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
                 this->guideText.setString("Now click SPACE to start simulation.");
@@ -258,7 +256,6 @@ void Game::pollEvents()
             else if (this->ev.key.code == sf::Keyboard::Num8)
             {
                 this->maxDisks = 8;
-                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
                 this->guideText.setString("Now click SPACE to start simulation.");
@@ -266,7 +263,6 @@ void Game::pollEvents()
             else if (this->ev.key.code == sf::Keyboard::Num7)
             {
                 this->maxDisks = 7;
-                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
                 this->guideText.setString("Now click SPACE to start simulation.");
@@ -274,7 +270,6 @@ void Game::pollEvents()
             else if (this->ev.key.code == sf::Keyboard::Num6)
             {
                 this->maxDisks = 6;
-                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
                 this->guideText.setString("Now click SPACE to start simulation.");
@@ -282,7 +277,6 @@ void Game::pollEvents()
             else if (this->ev.key.code == sf::Keyboard::Num4)
             {
                 this->maxDisks = 4;
-                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
                 this->guideText.setString("Now click SPACE to start simulation.");
@@ -290,7 +284,6 @@ void Game::pollEvents()
             else if (this->ev.key.code == sf::Keyboard::Num3)
             {
                 this->maxDisks = 3;
-                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
                 this->guideText.setString("Now click SPACE to start simulation.");
@@ -298,7 +291,6 @@ void Game::pollEvents()
             else if (this->ev.key.code == sf::Keyboard::Num2)
             {
                 this->maxDisks = 2;
-                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
                 this->guideText.setString("Now click SPACE to start simulation.");
@@ -306,7 +298,6 @@ void Game::pollEvents()
             else if (this->ev.key.code == sf::Keyboard::Num1)
             {
                 this->maxDisks = 1;
-                this->queue = this->emptyQueue; // Empty the queue to start counting properly.
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
                 this->guideText.setString("Now click SPACE to start simulation.");
@@ -320,7 +311,6 @@ void Game::pollEvents()
                 this->move(this->queue.front());
                 this->guideText.setString("");
             }
-            this->diskSpawnTimer += 1.f;
             this->update();
             break;
         }
@@ -371,5 +361,4 @@ void Game::render() // Playing the Pixels on the window
     this->window->draw(this->collegeName);
     this->renderDisks();
     this->window->display();
-    
 }
