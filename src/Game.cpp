@@ -246,6 +246,7 @@ void Game::pollEvents()
         
             if (this->ev.key.code == sf::Keyboard::Num5)
             {
+                this->fromPeg = this->toPeg = this->auxPeg = this->emptyPeg;
                 this->maxDisks = 5;
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
@@ -253,6 +254,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Num9)
             {
+                this->fromPeg = this->toPeg = this->auxPeg = this->emptyPeg;
                 this->maxDisks = 9;
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
@@ -260,6 +262,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Num8)
             {
+                this->fromPeg = this->toPeg = this->auxPeg = this->emptyPeg;
                 this->maxDisks = 8;
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
@@ -267,6 +270,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Num7)
             {
+                this->fromPeg = this->toPeg = this->auxPeg = this->emptyPeg;
                 this->maxDisks = 7;
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
@@ -274,6 +278,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Num6)
             {
+                this->fromPeg = this->toPeg = this->auxPeg = this->emptyPeg;
                 this->maxDisks = 6;
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
@@ -281,6 +286,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Num4)
             {
+                this->fromPeg = this->toPeg = this->auxPeg = this->emptyPeg;
                 this->maxDisks = 4;
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
@@ -288,6 +294,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Num3)
             {
+                this->fromPeg = this->toPeg = this->auxPeg = this->emptyPeg;
                 this->maxDisks = 3;
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
@@ -295,6 +302,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Num2)
             {
+                this->fromPeg = this->toPeg = this->auxPeg = this->emptyPeg;
                 this->maxDisks = 2;
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');
@@ -302,6 +310,7 @@ void Game::pollEvents()
             }
             else if (this->ev.key.code == sf::Keyboard::Num1)
             {
+                this->fromPeg = this->toPeg = this->auxPeg = this->emptyPeg;
                 this->maxDisks = 1;
                 this->initDisks();
                 this->TowerLogic(this->maxDisks, 'S', 'D', 'A');

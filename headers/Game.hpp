@@ -44,7 +44,7 @@ class Game
          * -holder : Character to help in swaping between S, D, A.
          * 
          */
-        std::vector<sf::RectangleShape> fromPeg, toPeg, auxPeg, fPeg, tPeg;
+        std::vector<sf::RectangleShape> fromPeg, toPeg, auxPeg, fPeg, tPeg, emptyPeg;
         sf::RectangleShape disk;
         char S, D, A, holder;
         
