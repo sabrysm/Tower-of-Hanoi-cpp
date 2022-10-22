@@ -19,9 +19,7 @@ The simulator provides:
 ![https://imgur.com/9Cjz2Wh](https://i.imgur.com/9Cjz2Wh.png)
 ![https://imgur.com/nirFPQS](https://i.imgur.com/nirFPQS.png)
 
-## How-to
-
-Setting up:
+## Setting up:
 * Use MinGW compiler and make sure the comiler files are in `C folder`
 * Download `CMake` and `CMake Tools` extensions in Visual Studio Code
 * Specify the path to your compiler in `CMakeLists.txt` file
