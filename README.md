@@ -1,9 +1,15 @@
 # Tower of Hanoi Simulator
 
-Tower of Hanoi Simulator based on the [Tower of Hanoi Game](https://en.wikipedia.org/wiki/Tower_of_Hanoi) built using [SFML](https://github.com/SFML/SFML). 
+Tower of Hanoi is a classic puzzle game that consists of three rods and a set of disks of different sizes. The goal is to move the entire stack of disks from the starting rod to the destination rod, while following three simple rules:
 
-This project is considered an application to Stack data structure.
+1. Only one disk can be moved at a time
+2. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an empty rod.
+3. No disk may be placed on top of a smaller disk.
 
+## NOTES
+
+* Tower of Hanoi Simulator is built using [SFML](https://github.com/SFML/SFML). 
+* This project is considered an application to Stack data structure.
 ## Features
 
 The simulator provides:
